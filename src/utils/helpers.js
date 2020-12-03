@@ -41,7 +41,11 @@ module.exports = {
             if (type === 'number' || type === 'float') {
               row += m[k] + separator
             } else {
-              row += '"' + m[k] + '"' + separator
+              if (m[k] !== null && m[k] !== 'null') {
+                row += '"' + m[k] + '"' + separator
+              } else {
+                row += '""' + separator
+              }
             }
           })
 
